@@ -910,29 +910,37 @@ function shortPatternName(name) {
 
 /* ============================================================
    SCORING - pattern determination
-   This always returns one of the six PATTERNS keys below -
-   recognized_authority, decaying_authority, strong_foundation,
-   promising_claim, hidden_expert, or validated_generalist.
+   This always returns one of FIVE live PATTERNS keys -
+   recognized_authority, strong_foundation, promising_claim,
+   hidden_expert, or validated_generalist.
    The final fallback chain guarantees a valid key is always
    returned, and the safety check at the bottom guarantees
    PATTERNS[key] is never undefined.
+
+   Decaying Authority is intentionally excluded from live
+   determination. It describes a brand whose three corners were
+   once stronger and are now weakening - a trajectory judgment -
+   and none of the 15 questions ask about direction of travel
+   over time (Q15 is hypothetical, not historical). A single
+   snapshot of scores cannot distinguish "never built this up"
+   from "built it up and is now losing it," so the pattern stays
+   in PATTERNS and the six-pattern comparison grid as context
+   only, and is never assigned as a live result. If a future
+   version adds a trajectory question (e.g. mentions/citations/
+   referrals up or down over the last 12 months), this branch can
+   be reinstated using that answer rather than the absolute scores.
 ============================================================ */
 function determinePattern(c, k, a) {
   var MAX = 15; // max score per dimension (5 questions x 3)
   var cp = (c / MAX) * 100;
   var kp = (k / MAX) * 100;
   var ap = (a / MAX) * 100;
-  var avg = (cp + kp + ap) / 3;
 
   var key;
 
   // Recognized Authority: all three dimensions strong
   if (cp >= 60 && kp >= 60 && ap >= 60) {
     key = 'recognized_authority';
-  }
-  // Decaying Authority: all three present but all weakening together
-  else if (cp >= 30 && kp >= 30 && ap >= 30 && avg < 65) {
-    key = 'decaying_authority';
   }
   // Strong Foundation: clarity + credibility strong, authority weak
   else if (cp >= 55 && kp >= 55 && ap < 45) {
