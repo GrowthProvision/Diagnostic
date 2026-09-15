@@ -4,13 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Free AI Brand Visibility Check | The Recognition Diagnostic | GrowthProvision</title>
-<meta name="description" content="A free AI brand visibility check and GEO audit tool. 15 questions reveal which of the six Recognition Triangle patterns describes your brand, and where to start.">
+<meta name="description" content="A free AI brand visibility check and GEO audit tool. 16 questions reveal which of the six Recognition Triangle patterns describes your brand, and where to start.">
 <meta name="robots" content="index, follow">
 <!-- TODO: set canonical href to the live GitHub Pages URL once published -->
 <link rel="canonical" href="https://growthprovision.com/diagnostic/">
 <link rel="icon" href="images/growthprovision-favicon.png" type="image/png">
 <meta property="og:title" content="The Recognition Diagnostic: GrowthProvision">
-<meta property="og:description" content="Where does your brand sit on the Recognition Triangle? 15 questions. One of six results. A clear starting point.">
+<meta property="og:description" content="Where does your brand sit on the Recognition Triangle? 16 questions. One of six results. A clear starting point.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://growthprovision.com/diagnostic/">
 <meta property="og:site_name" content="GrowthProvision">
@@ -19,14 +19,14 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@growthprovision">
 <meta name="twitter:title" content="Free AI Brand Visibility Check | The Recognition Diagnostic">
-<meta name="twitter:description" content="A free AI brand visibility check. 15 questions, one of six results, a clear starting point.">
+<meta name="twitter:description" content="A free AI brand visibility check. 16 questions, one of six results, a clear starting point.">
 <meta name="twitter:image" content="https://growthprovision.com/images/Recognition-Diagnostic-social.png">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Quiz",
   "name": "The Recognition Diagnostic",
-  "description": "A 15-question diagnostic based on the Recognition Triangle, the model from Become the Answer by Lucy Aingworth. Identifies which of the six brand patterns applies and where to invest first.",
+  "description": "A 16-question diagnostic based on the Recognition Triangle, the model from Become the Answer by Lucy Aingworth. Identifies which of the six brand patterns applies and where to invest first.",
   "author": { "@type": "Person", "@id": "https://aingworth.com/#lucy", "name": "Lucy Aingworth", "url": "https://aingworth.com/about/" },
   "url": "https://growthprovision.com/diagnostic/",
   "educationalUse": "Self-assessment",
@@ -367,6 +367,7 @@ a { color:inherit; text-decoration:none; }
 .rdb-label { font-family:var(--mono); font-size:10px; color:var(--teal-light); letter-spacing:.14em; text-transform:uppercase; margin-bottom:14px; }
 .rdb-text { font-size:16px; line-height:1.78; color:var(--muted-dark); }
 .rdb-text p + p { margin-top:14px; }
+.rdb-early-note { font-style:italic; font-size:14px; color:var(--mid-grey); border-left:2px solid rgba(119,52,245,.3); padding-left:14px; margin-bottom:16px; }
 
 /* All six patterns block (sits between "What this means" and "Where to invest first") */
 .result-patterns-block {
@@ -486,10 +487,10 @@ a { color:inherit; text-decoration:none; }
       Where does your brand sit<br>on the <em>Recognition Triangle?</em>
     </h1>
 
-    <p class="intro-sub">The Recognition Diagnostic is a free GEO audit tool and AI brand visibility check. In 15 questions across three dimensions it gives you a brand authority assessment: one of six results and a clear picture of where you stand and where to invest first. Think of it as an AI search visibility score across the three dimensions that decide whether AI systems cite you.</p>
+    <p class="intro-sub">The Recognition Diagnostic is a free GEO audit tool and AI brand visibility check. In 16 questions across three dimensions it gives you a brand authority assessment: one of six results and a clear picture of where you stand and where to invest first. Think of it as an AI search visibility score across the three dimensions that decide whether AI systems cite you.</p>
 
     <div class="intro-badges" aria-label="What to expect">
-      <div class="intro-badge"><span class="intro-badge-dot" aria-hidden="true"></span>15 questions</div>
+      <div class="intro-badge"><span class="intro-badge-dot" aria-hidden="true"></span>16 questions</div>
       <div class="intro-badge"><span class="intro-badge-dot" aria-hidden="true"></span>About 5 minutes</div>
       <div class="intro-badge"><span class="intro-badge-dot" aria-hidden="true"></span>One of six patterns</div>
       <div class="intro-badge"><span class="intro-badge-dot" aria-hidden="true"></span>Free</div>
@@ -529,7 +530,7 @@ a { color:inherit; text-decoration:none; }
     <div class="progress-wrap">
       <div class="progress-header">
         <span class="progress-label">Your progress</span>
-        <span class="progress-fraction" id="q-fraction">1 of 15</span>
+        <span class="progress-fraction" id="q-fraction">1 of 16</span>
       </div>
       <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="q-progress-bar">
         <div class="progress-fill" id="q-progress-fill"></div>
@@ -629,7 +630,15 @@ var QUESTIONS = [
     ]
   },
 
-  // ---- CREDIBILITY (Q6-10) ----
+  // ---- CREDIBILITY (Q6-9) ----
+  // Rebalanced Sep 2026: Q7 replaced (was pure self-report with no external
+  // signal), Q9 added (nothing previously asked for verifiable proof). The
+  // two Structural-signal questions that used to live here (Wikipedia/
+  // knowledge graphs, schema markup) moved to Earned Authority below:
+  // Structural is one of Earned Authority's three named sub-layers per the
+  // book, not a Credibility signal, and scoring it under Credibility meant
+  // a brand with zero structural presence took no hit to its Authority
+  // score at all.
   {
     id: 6, dim: 'k',
     text: 'How much original intellectual work has your brand produced that others in your field can reference?',
@@ -643,28 +652,62 @@ var QUESTIONS = [
   },
   {
     id: 7, dim: 'k',
-    text: 'How deep is the expertise behind your brand positioning?',
-    hint: 'Be honest. Not what you would say in a pitch. What you know to be true.',
+    text: 'If someone fact-checked every claim on your homepage against an independent source, how many would hold up unchanged?',
+    hint: 'Not what sounds convincing. What survives independent verification: stats, credentials, years in business, results.',
     options: [
-      { label: 'We are still building genuine expertise in this area', sub: 'The positioning is ahead of the substance behind it', score: 0 },
-      { label: 'The expertise exists but has not been thoroughly documented or expressed', sub: 'Real knowledge that has not been made externally legible', score: 1 },
-      { label: 'Solid expertise, some gaps that we are aware of', sub: 'Deep in core areas, thinner at the edges', score: 2 },
-      { label: 'Genuine depth: we know more about this than almost anyone', sub: 'Expertise that would withstand peer scrutiny', score: 3 }
+      { label: 'Almost none would hold up unchanged', sub: 'Most claims are approximate, unverifiable, or would need real qualification', score: 0 },
+      { label: 'Some would hold up, but several would need updating or softening', sub: 'A mix of solid claims and ones that overstate or have gone stale', score: 1 },
+      { label: 'Most would hold up, with only minor updates needed', sub: 'The substance is accurate, a few details need refreshing', score: 2 },
+      { label: 'Nearly all would hold up exactly as stated', sub: 'Every claim on the page is current and independently verifiable', score: 3 }
     ]
   },
   {
     id: 8, dim: 'k',
-    text: 'How well represented is your brand in the formal knowledge structures that AI uses as reference: Wikipedia, industry databases, knowledge graphs?',
-    hint: 'Search Wikipedia and major industry directories for your brand name and key people.',
+    text: 'How much has your brand published in genuinely credible third-party environments: respected publications, peer-reviewed contexts, industry research?',
+    hint: 'Not paid placements or guest posts. Independent editorial placement in environments that are credible without you.',
     options: [
-      { label: 'Not present in any of these: no structural layer exists', sub: 'No Wikipedia entry, no structured data, no directory presence', score: 0 },
-      { label: 'Minimal presence: perhaps a directory listing or two, nothing substantive', sub: 'Exists but thin and not authoritative', score: 1 },
-      { label: 'Some presence but incomplete or not fully accurate', sub: 'In the right places but the information could be stronger', score: 2 },
-      { label: 'Well represented: accurate, substantive, and correctly categorized', sub: 'Strong structural layer that reflects current positioning', score: 3 }
+      { label: 'Almost nothing beyond our own channels', sub: 'Primarily owned content with no credible third-party presence', score: 0 },
+      { label: 'A handful of placements but no consistent pattern', sub: 'Occasional external publication without regularity', score: 1 },
+      { label: 'Regular presence in some credible publications', sub: 'A pattern beginning to form but not yet comprehensive', score: 2 },
+      { label: 'Consistent presence across multiple credible independent publications', sub: 'A clear editorial track record the machine can read as authoritative', score: 3 }
     ]
   },
   {
     id: 9, dim: 'k',
+    text: 'How much verifiable proof backs up your claims: named client outcomes, case studies, or third-party reviews?',
+    hint: 'Not testimonials you wrote yourself. Proof someone else can check: a named case study, a client on record, a review on a platform you do not control.',
+    options: [
+      { label: 'Almost none: claims are not backed by anything checkable', sub: 'No named case studies, no verifiable reviews, no client-attributed results', score: 0 },
+      { label: 'A little: one or two examples, but nothing systematic', sub: 'Some proof exists but it is thin or hard to find', score: 1 },
+      { label: 'A reasonable body of proof, though not comprehensive', sub: 'Real case studies and reviews exist, covering some of what you claim', score: 2 },
+      { label: 'Strong, verifiable proof across most of what you claim', sub: 'Named outcomes, reviews, and case studies back up the positioning', score: 3 }
+    ]
+  },
+
+  // ---- EARNED AUTHORITY (Q10-16) ----
+  // Rebalanced Sep 2026: Q10 rewritten and moved in from Credibility
+  // (Structural signal: deliberately does not use Wikipedia as an example,
+  // since notability there isn't something most client brands can
+  // realistically build toward). Q11 moved in unchanged (Structural:
+  // schema markup is genuinely actionable). Q12-15 unchanged (Expert and
+  // Community layers). Q16 replaces the old hypothetical "what if you
+  // stopped for six months" question with a real historical trajectory
+  // question: nothing in the previous 15 asked about direction of travel,
+  // which is also what made Decaying Authority undiagnosable from a
+  // single snapshot.
+  {
+    id: 10, dim: 'a',
+    text: 'How well represented is your brand in the registers and databases AI treats as verification: your regulatory register, Wikidata, business directories?',
+    hint: 'Check your regulatory register, Companies House, Wikidata, and the major business directories for your brand name. For regulated firms, that starts with the FCA register.',
+    options: [
+      { label: 'Not present in any of these', sub: 'No regulatory listing, no Wikidata entry, no structured presence at all', score: 0 },
+      { label: 'Minimal presence: maybe one directory or register listing', sub: 'Exists somewhere, but thin and easy to miss', score: 1 },
+      { label: 'Present in several, but incomplete or outdated', sub: 'In the right places, but the details could be stronger or more current', score: 2 },
+      { label: 'Well represented, accurate and complete across the ones that matter', sub: 'A machine checking your industry\'s verification sources finds you clearly', score: 3 }
+    ]
+  },
+  {
+    id: 11, dim: 'a',
     text: 'Does your website and content use structured data markup to make your entity clear to AI systems?',
     hint: 'Schema.org JSON-LD for Person, Organization, Article, Book, and similar types.',
     options: [
@@ -675,20 +718,7 @@ var QUESTIONS = [
     ]
   },
   {
-    id: 10, dim: 'k',
-    text: 'How much has your brand published in genuinely credible third-party environments: respected publications, peer-reviewed contexts, industry research?',
-    hint: 'Not paid placements or guest posts. Independent editorial placement in environments that are credible without you.',
-    options: [
-      { label: 'Almost nothing beyond our own channels', sub: 'Primarily owned content with no credible third-party presence', score: 0 },
-      { label: 'A handful of placements but no consistent pattern', sub: 'Occasional external publication without regularity', score: 1 },
-      { label: 'Regular presence in some credible publications', sub: 'A pattern beginning to form but not yet comprehensive', score: 2 },
-      { label: 'Consistent presence across multiple credible independent publications', sub: 'A clear editorial track record the machine can read as authoritative', score: 3 }
-    ]
-  },
-
-  // ---- EARNED AUTHORITY (Q11-15) ----
-  {
-    id: 11, dim: 'a',
+    id: 12, dim: 'a',
     text: 'When independent experts, analysts, or journalists in your field write about topics you own, do they reference your work?',
     hint: 'Not when writing about you. When writing about the topic, do they cite your thinking unprompted?',
     options: [
@@ -699,7 +729,7 @@ var QUESTIONS = [
     ]
   },
   {
-    id: 12, dim: 'a',
+    id: 13, dim: 'a',
     text: 'In the communities and forums where your ideal clients gather, is your brand discussed organically?',
     hint: 'Reddit, LinkedIn communities, industry Slack groups, Discord servers: places you did not put yourself.',
     options: [
@@ -710,7 +740,7 @@ var QUESTIONS = [
     ]
   },
   {
-    id: 13, dim: 'a',
+    id: 14, dim: 'a',
     text: 'How consistent is the picture independent sources paint of your brand compared to how you describe yourself?',
     hint: 'Search your brand name across independent sources. What story do they tell? Does it match your own?',
     options: [
@@ -721,7 +751,7 @@ var QUESTIONS = [
     ]
   },
   {
-    id: 14, dim: 'a',
+    id: 15, dim: 'a',
     text: 'Has your brand ever generated earned media, coverage, citations, or recommendations that you did not initiate, pay for, or ask for?',
     hint: 'Not PR placements or arranged interviews. Genuine unprompted coverage or reference.',
     options: [
@@ -732,17 +762,29 @@ var QUESTIONS = [
     ]
   },
   {
-    id: 15, dim: 'a',
-    text: 'If you stopped all content production and outreach for six months, what would happen to your brand\'s visibility in AI search?',
-    hint: 'This tests whether you have built something that compounds or something that requires constant feeding.',
+    id: 16, dim: 'a',
+    text: 'Over the last 12 months, has your brand\'s presence in AI answers, citations, and community mentions gone up, stayed flat, or gone down?',
+    hint: 'Compare what you notice today, in AI tools, citations, or community discussion, to a year ago. Be honest even if you have not been tracking closely.',
     options: [
-      { label: 'It would disappear almost immediately', sub: 'Everything depends on active management: nothing compounds without us', score: 0 },
-      { label: 'It would decline significantly within a few months', sub: 'Weak independent signals that decay quickly without reinforcement', score: 1 },
-      { label: 'It would hold for a while but gradually weaken', sub: 'Some compounding signals but not enough to sustain long-term', score: 2 },
-      { label: 'It would hold or continue growing on its own momentum', sub: 'Genuine Earned Authority that compounds independently', score: 3 }
+      { label: 'Declined: we used to show up more than we do now', sub: 'Visibility has gotten worse, not better, over the past year', score: 0 },
+      { label: 'Stayed flat: no real change either way', sub: 'About the same as this time last year', score: 1 },
+      { label: 'Increased somewhat: modest, inconsistent gains', sub: 'Some improvement, but not a clear or steady trend', score: 2 },
+      { label: 'Increased clearly and consistently', sub: 'A noticeable upward trend we could point to if asked', score: 3 }
     ]
   }
 ];
+
+// Max possible raw score per dimension = (questions tagged to that
+// dimension) x 3 points each. Dimensions no longer have equal question
+// counts after the Sep 2026 rebalance (Earned Authority carries more,
+// since it is the condition with three named sub-layers), so this can no
+// longer be a single hardcoded constant: every percentage calculation
+// below must divide by the correct per-dimension denominator, not a
+// shared one.
+var DIM_MAX = QUESTIONS.reduce(function(acc, q) {
+  acc[q.dim] = (acc[q.dim] || 0) + 3;
+  return acc;
+}, { c: 0, k: 0, a: 0 });
 
 /* ============================================================
    SIX PATTERNS
@@ -828,8 +870,8 @@ var PATTERNS = {
     ],
     priority: 'Renewal across all three corners',
     steps: [
-      { title: 'Audit the composite picture urgently', text: 'Find out exactly where the decay is most visible. Outdated Structural Layer entries, citation patterns that have plateaued, community signals that no longer reflect current positioning. The diagnosis tells you where to invest first.' },
-      { title: 'Refresh the Structural and Expert Layers with priority', text: 'These age most visibly when investment pauses. Update formal knowledge representations. Recommit to intellectual contribution that earns fresh citations from current voices.' },
+      { title: 'Audit all three corners, not just Earned Authority', text: 'Find out exactly where the decay is most visible. Positioning that has drifted or gone stale, claims and case studies that need refreshing, outdated Structural Layer entries, citation patterns that have plateaued, community signals that no longer reflect current positioning. The diagnosis tells you where to invest first.' },
+      { title: 'Refresh whichever corner has decayed fastest', text: 'Earned Authority typically ages first, since it depends on continued independent activity, not just internal upkeep: update formal knowledge representations and recommit to intellectual contribution that earns fresh citations. But check Clarity and Credibility too. Positioning drifts and claims go stale even when nobody has touched them.' },
       { title: 'Treat this as a renewal program, not a reputation repair', text: 'Decaying authority is a maintenance failure, not a crisis. The underlying Recognition Triangle architecture is there. It needs sustained renewal investment, not emergency intervention.' }
     ]
   }
@@ -919,31 +961,47 @@ function shortPatternName(name) {
 
    Decaying Authority is intentionally excluded from live
    determination. It describes a brand whose three corners were
-   once stronger and are now weakening - a trajectory judgment -
-   and none of the 15 questions ask about direction of travel
-   over time (Q15 is hypothetical, not historical). A single
-   snapshot of scores cannot distinguish "never built this up"
-   from "built it up and is now losing it," so the pattern stays
-   in PATTERNS and the six-pattern comparison grid as context
-   only, and is never assigned as a live result. If a future
-   version adds a trajectory question (e.g. mentions/citations/
-   referrals up or down over the last 12 months), this branch can
-   be reinstated using that answer rather than the absolute scores.
+   once stronger and are now weakening - a trajectory judgment.
+   Q16 (added Sep 2026) now asks directly whether AI presence,
+   citations, or community mentions have risen, held flat, or
+   declined over the last 12 months, so the raw signal needed to
+   diagnose this pattern finally exists. It is still not wired into
+   this function, though: Q16 is one question with a coarse 0-3
+   scale, and using it correctly means deciding how a "declined"
+   answer should interact with the existing thresholds below
+   (e.g. should a declining brand that still scores well on
+   everything else outrank Recognized Authority or Strong
+   Foundation) - a scoring-logic decision, not just a data
+   question. Until that's decided, the pattern stays in PATTERNS
+   and the six-pattern comparison grid as context only.
 ============================================================ */
 function determinePattern(c, k, a) {
-  var MAX = 15; // max score per dimension (5 questions x 3)
-  var cp = (c / MAX) * 100;
-  var kp = (k / MAX) * 100;
-  var ap = (a / MAX) * 100;
+  // Each dimension has its own max now (see DIM_MAX above) - Earned
+  // Authority carries more questions than Clarity or Credibility, so
+  // dividing every dimension by the same number would be wrong.
+  var cp = (c / DIM_MAX.c) * 100;
+  var kp = (k / DIM_MAX.k) * 100;
+  var ap = (a / DIM_MAX.a) * 100;
 
   var key;
 
-  // Recognized Authority: all three dimensions strong
-  if (cp >= 60 && kp >= 60 && ap >= 60) {
+  // Recognized Authority: all three dimensions strong. Clarity/credibility
+  // use the same 55 "strong" bar every other branch below uses (not 60) -
+  // otherwise a brand at, say, 56/56/65 has no weak corner by any of this
+  // cascade's own standards, yet was falling through every named branch
+  // (Strong Foundation excludes it because ap isn't <60) into the tiebreak,
+  // which then mislabeled genuinely solid clarity/credibility as "weak."
+  // Authority keeps the 60 line, matching Strong Foundation's own ceiling.
+  if (cp >= 55 && kp >= 55 && ap >= 60) {
     key = 'recognized_authority';
   }
-  // Strong Foundation: clarity + credibility strong, authority weak
-  else if (cp >= 55 && kp >= 55 && ap < 45) {
+  // Strong Foundation: clarity + credibility strong, authority weak.
+  // Threshold is ap < 60, not ap < 45: anything with authority at 60+
+  // alongside cp/kp at 55+ is already caught by Recognized Authority
+  // above, so this only needs to exclude that overlap - not leave a gap
+  // between 45 and 60 where a genuinely solid brand (e.g. 67/67/53) fell
+  // through every named branch and landed in the tiebreak instead.
+  else if (cp >= 55 && kp >= 55 && ap < 60) {
     key = 'strong_foundation';
   }
   // Promising Claim: clarity strong, credibility + authority weak
@@ -958,15 +1016,44 @@ function determinePattern(c, k, a) {
   else if (ap >= 45 && cp < 50 && kp < 50) {
     key = 'validated_generalist';
   }
-  // Tiebreak: whichever dimension is relatively strongest decides the pattern
-  else if (cp >= kp && cp >= ap) {
-    key = 'promising_claim';
-  }
-  else if (kp >= cp && kp >= ap) {
-    key = 'hidden_expert';
-  }
+  // Tiebreak: none of the named thresholds above fit, so rank by which
+  // corner is WEAKEST rather than which looked strongest. Every pattern is
+  // defined by what's missing, and every "where to invest first" points at
+  // the weakest corner - ranking by relative strength instead could label
+  // a brand with genuinely solid credibility as "weak credibility" just
+  // because clarity happened to be a point or two higher.
   else {
-    key = 'strong_foundation';
+    var minVal = Math.min(cp, kp, ap);
+    var cpWeak = cp === minVal;
+    var kpWeak = kp === minVal;
+    var apWeak = ap === minVal;
+
+    // Checked and deliberately left in this order (clarity+credibility
+    // before authority alone) after testing the alternative. Given this
+    // question distribution (5 clarity / 4 credibility / 7 authority
+    // questions), an exact three-way tie across cp/kp/ap is only reachable
+    // at 0%, 33.33%, 66.67% or 100% - and the top two of those are already
+    // caught by the Recognized Authority branch above, before the tiebreak
+    // even runs. So the only real three-way ties this code ever sees are
+    // 0% and 33.33%: someone with next to nothing built yet. At that stage
+    // the honest advice is "build clarity and credibility first" (Validated
+    // Generalist's priority), not "invest in Earned Authority" (Strong
+    // Foundation's priority) - you cannot earn independent authority for a
+    // position that isn't clear or credible yet. So clarity+credibility
+    // stays the first check; authority is only treated as the sole weak
+    // corner when it is genuinely alone at the bottom, not tied for it.
+    if (cpWeak && kpWeak) {
+      // Clarity and credibility are tied for weakest (or both sit below
+      // authority) - a two-way gap, which is what Validated Generalist
+      // is for: invest in clarity and credibility together.
+      key = 'validated_generalist';
+    } else if (apWeak) {
+      key = 'strong_foundation'; // authority is the single weak corner
+    } else if (cpWeak) {
+      key = 'hidden_expert';     // clarity is the single weak corner
+    } else {
+      key = 'promising_claim';   // credibility is the single weak corner
+    }
   }
 
   // Safety net - always return a key that exists in PATTERNS
@@ -1025,7 +1112,7 @@ function renderQuestion(idx) {
 
   var html = '<div class="q-card" id="current-q">' +
     '<div class="q-dim-label ' + dl.cls + '">' + dl.label + '</div>' +
-    '<div class="q-num">Question ' + String(idx + 1).padStart(2,'0') + ' of 15</div>' +
+    '<div class="q-num">Question ' + String(idx + 1).padStart(2,'0') + ' of ' + QUESTIONS.length + '</div>' +
     '<div class="q-text">' + q.text + '</div>' +
     '<p class="q-hint">' + q.hint + '</p>' +
     '<div class="opts" role="group" aria-label="Answer options">' + optsHtml + '</div>' +
@@ -1097,11 +1184,10 @@ function goBack() {
 function showCapture() {
   recalcScores();
   var c = state.scores.c, k = state.scores.k, a = state.scores.a;
-  var MAX = 15;
 
-  state.cpct = Math.round((c / MAX) * 100);
-  state.kpct = Math.round((k / MAX) * 100);
-  state.apct = Math.round((a / MAX) * 100);
+  state.cpct = Math.round((c / DIM_MAX.c) * 100);
+  state.kpct = Math.round((k / DIM_MAX.k) * 100);
+  state.apct = Math.round((a / DIM_MAX.a) * 100);
   state.patternKey = determinePattern(c, k, a);
   var pattern = PATTERNS[state.patternKey];
 
@@ -1201,10 +1287,9 @@ function showResults() {
   // called on its own.
   if (!state.patternKey) {
     recalcScores();
-    var MAX = 15;
-    state.cpct = Math.round((state.scores.c / MAX) * 100);
-    state.kpct = Math.round((state.scores.k / MAX) * 100);
-    state.apct = Math.round((state.scores.a / MAX) * 100);
+    state.cpct = Math.round((state.scores.c / DIM_MAX.c) * 100);
+    state.kpct = Math.round((state.scores.k / DIM_MAX.k) * 100);
+    state.apct = Math.round((state.scores.a / DIM_MAX.a) * 100);
     state.patternKey = determinePattern(state.scores.c, state.scores.k, state.scores.a);
   }
 
@@ -1233,7 +1318,17 @@ function showResults() {
       '</div>';
   }).join('');
 
-  var descHtml = pattern.description.map(function(p) { return '<p>' + p + '</p>'; }).join('');
+  // When all three dimensions are under 45%, none of the named patterns'
+  // "strong" thresholds are met and the result comes from the tiebreak
+  // with nothing genuinely strong to point at. A flat qualifier line above
+  // the description keeps that honest, rather than letting the pattern's
+  // own copy (which is written assuming at least one real strength) read
+  // as if a strength has already been established.
+  var isEarlyStage = cpct < 45 && kpct < 45 && apct < 45;
+  var earlyStageNote = isEarlyStage
+    ? '<p class="rdb-early-note">All three dimensions are early stage. The pattern below shows where to start, not a strength you have already built.</p>'
+    : '';
+  var descHtml = earlyStageNote + pattern.description.map(function(p) { return '<p>' + p + '</p>'; }).join('');
 
   var html =
     '<div class="result-hero" id="result-top">' +
